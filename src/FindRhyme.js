@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 export default function FindRhyme() {
   return (
       <>
-      <Button variant="contained">Find me a Rhyme</Button>
+      <Button variant="contained">Find Rhymes</Button>
       </>
   );
 }
