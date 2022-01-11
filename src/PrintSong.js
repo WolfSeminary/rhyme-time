@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 
- const PrintSong=()=> {
+const PrintSong = () => {
   return (
     <Button variant="contained" disableElevation>
       Print Designed Song

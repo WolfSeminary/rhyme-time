@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import PrintSong from './PrintSong';
+import AppBarPage from './AppBar';
 
 function App() {
   return (
     <div className="App">
-        <PrintSong/>
+      <AppBarPage />
     </div>
   );
 }
