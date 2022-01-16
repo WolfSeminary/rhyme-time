@@ -3,6 +3,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 const WordToRhyme= ()=> {
+  const[wordToRhyme ,setWordToRhyme]=useState;
+  const onWordToRhymeChange=(e)=>{
+   setWordToRhyme(e.target.value);
+  }
   return (
     <Box
       component="form"
@@ -10,7 +14,7 @@ const WordToRhyme= ()=> {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Type a Word" variant="outlined" />
+      <TextField id="outlined-basic" label="Type a Word" variant="outlined" onChange={onWordToRhymeChange}/>
     </Box>
   );
 }
