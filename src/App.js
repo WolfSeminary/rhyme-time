@@ -1,14 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import RhymesList  from './RhymesList';
-
+import AppBarPage from './AppBar';
+import NumOfSyllables from './NumOfSyllables ';
 function App() {
   return (
-    <>
-    <RhymesList />
-    
-    </>
-  
+    <div className="App">
+      <AppBarPage />
+    </div>
   );
 }
 
