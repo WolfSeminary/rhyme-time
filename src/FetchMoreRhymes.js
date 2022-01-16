@@ -6,6 +6,6 @@ export default function FetchMoreRhymes() {
     const [currentRhymesRange, setcurrentRhymesRange] = useState(0)
     const fetchRhymes = () => { setcurrentRhymesRange( currentRhymesRange + 10) }
     return (
-        <Button variant="contained">Fetch more Rhymes</Button>
+        <Button variant="contained">Fetch more Rhymes({currentRhymesRange/this.state.rhymes})</Button>
     );
 }
