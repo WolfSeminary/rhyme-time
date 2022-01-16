@@ -9,6 +9,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 //import {  Comment as CommentIcon } from '@mui/icons-material'
 
 export default function RhymesList() {
+  const [rhymes,setRhymes]=useState();
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
