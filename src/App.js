@@ -1,12 +1,13 @@
-//import logo from './logo.svg';
 import './App.css';
-import WordToRhyme from './WordToRhyme ';
+import AppBarPage from './AppBar';
+import MultilineTextFiel from './WriteSong';
 
 function App() {
   return (
     <div className="App">
-      <WordToRhyme></WordToRhyme>
-      </div>
+      <AppBarPage />
+      <MultilineTextFiel/>
+    </div>
   );
 }
 
