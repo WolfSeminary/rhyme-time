@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 export default function MultilineTextFields() {
+  const [song, setSong] = React.useState("");
   const [value, setValue] = React.useState('Controlled');
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setValue(song);
+  };
+  const onWriteSong = (event) => {
+    setSong(event.target.value);
+    console.log("the current song: "+song);
   };
   return (
     <div style={{ display: "flex" }}>
@@ -26,9 +31,11 @@ export default function MultilineTextFields() {
             fullWidth
             rows={4}
             defaultValue="Write the Song"
+            onChange={onWriteSong}
           />
         </div>
       </Box></div>
   );
 
 }
+
