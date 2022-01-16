@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import ClearSong from './ClearSong'
 ReactDOM.render(
   <React.StrictMode>
-    <ClearSong />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
