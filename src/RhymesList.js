@@ -8,10 +8,10 @@ import IconButton from '@mui/material/IconButton';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 //import {  Comment as CommentIcon } from '@mui/icons-material'
 
-export default function RhymesList() {
+export default function RhymesList(props) {
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value,index) => (
         <ListItem
           key={value}
           disableGutters
@@ -21,7 +21,7 @@ export default function RhymesList() {
             </IconButton>
           }
         >
-          <ListItemText primary={`Rhyme ${value}`} />
+          <ListItemText primary={`${props.rhymes[index]} ${value}`} />
         </ListItem>
       ))}
     </List>
