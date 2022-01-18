@@ -21,7 +21,7 @@ export default function RhymesList(props) {
             </IconButton>
           }
         >
-          <ListItemText primary={`${props.rhymes[index]} ${value}`} />
+          <ListItemText primary={`${value} ${props.rhymes[index]} `} />
         </ListItem>
       ))}
     </List>
