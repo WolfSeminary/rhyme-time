@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
+import RhymesList from './RhymesList'
 const WordToRhyme= ()=> {
   const [wordToRhyme,setWordToRhyme]=useState()
   const[rhymes ,setrhymes ]=useState()
@@ -9,7 +10,7 @@ const WordToRhyme= ()=> {
     e.preventDefault();
     fetch(`https://rhymebrain.com/talk?function=getRhymes&word=${wordToRhyme}`)
     .then(response => response.json())
-    .then((data) => setrhymes(data)
+    .then((data) => setrhymes(data) ,console.log(rhymes)
     );     
   }
   return (
@@ -21,8 +22,9 @@ const WordToRhyme= ()=> {
     >
       <TextField id="outlined-basic" onChange={(e) => setWordToRhyme(e.target.value)} label="Type a Word" variant="outlined" />
       <button onClick={fetchRhymes}>click</button>
-      {rhymes&& rhymes.map(i=>i.word +" "
-       )}
+      {rhymes&&  <RhymesList rhymes={rhymes.map(i=>i.word 
+       )}/>}
+      
     </Box>
    
   );
