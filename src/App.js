@@ -7,8 +7,7 @@ import AppBarPage from './AppBar';
 function App() {
   return (
     <div className="App">
-      <AppBarPage />
-        <WordToRhyme/> 
+      <AppBarPage />     
     </div>
   );
 }
