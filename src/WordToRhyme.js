@@ -11,7 +11,7 @@ const WordToRhyme = () => {
     e.preventDefault();
     fetch(`https://rhymebrain.com/talk?function=getRhymes&word=${wordToRhyme}`)
       .then(response => response.json())
-      .then((data) => setrhymes(data), console.log(rhymes)
+      .then((data) => setrhymes(data)
       );
   }
   return (
