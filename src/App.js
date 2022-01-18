@@ -1,12 +1,14 @@
 import './App.css';
 import AppBarPage from './AppBar';
 import MultilineTextFiel from './WriteSong';
+import HomepPage from './HomePage';
 
 function App() {
   return (
     <div className="App">
-      <AppBarPage />
-      <MultilineTextFiel/>
+      {/* <AppBarPage />
+      <MultilineTextFiel/> */}
+      <HomepPage/>
     </div>
   );
 }
