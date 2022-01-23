@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 export default function NumOfSyllables() {
   const [numOfSyllables, setNumOfSyllables] = useState(0);
+
   const onNumOfSyllablesChange = (e) => {
     setNumOfSyllables(e.target.value);
   }
