@@ -69,7 +69,7 @@ export default function ComplexGrid() {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <FetchMoreRhymes />
+                            {/* <FetchMoreRhymes /> */}
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
