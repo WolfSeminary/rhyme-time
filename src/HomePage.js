@@ -52,12 +52,15 @@ export default function ComplexGrid() {
                             <ClearSong
                             />
                         </Grid>
-                        <Grid item>
+                        {/* <Grid item>
                             <WriteSong />
-                        </Grid>
-                        <Grid item>
+                        </Grid> */}
+                         <Grid item xs={12}>
+                        <PrintSong />
+                    </Grid>
+                        {/* <Grid item>
                             <BackGround />
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                     <Grid item xs container direction="column" spacing={2}>
                         <Grid item xs={12} sm container spacing={10}>
@@ -72,9 +75,7 @@ export default function ComplexGrid() {
                             <FetchMoreRhymes />
                         </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <PrintSong />
-                    </Grid>
+                   
                 </Grid>
             </Paper>
         </div>

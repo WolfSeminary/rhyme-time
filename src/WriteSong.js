@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-export default function MultilineTextFields() {
+//////////////////////
+const MultilineTextFields = React.forwardRef((props, ref) => {
   const [song, setSong] = React.useState("");
   const [value, setValue] = React.useState('Controlled');
   const handleChange = (event) => {
@@ -10,7 +11,7 @@ export default function MultilineTextFields() {
   };
   const onWriteSong = (event) => {
     setSong(event.target.value);
-    console.log("the current song: "+song);
+    console.log("the current song: " + song);
   };
   return (
     <div style={{ display: "flex" }}>
@@ -25,6 +26,7 @@ export default function MultilineTextFields() {
       >
         <div>
           <TextField
+            ref={ref}
             id="outlined-multiline-static"
             label="Write Song"
             multiline
@@ -36,5 +38,9 @@ export default function MultilineTextFields() {
       </Box></div>
   );
 
-}
-
+})
+export default MultilineTextFields
+// export const FunctionalComponentToPrint = forwardRef((props, ref) => {
+//   // eslint-disable-line max-len
+//   return <MultilineTextFields ref={ref} />;
+// });
