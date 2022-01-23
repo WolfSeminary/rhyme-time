@@ -3,7 +3,12 @@ import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-const ThankYouModal = () => {
+const ThankYouModal = (props) => {
+
+const onCloseModal=()=>{
+props.shouldShowThankYouModal=false;
+}
+
     return (
         <Box
             sx={{
@@ -32,6 +37,7 @@ const ThankYouModal = () => {
                     justifyContent: 'center',
 
                 }}
+                onClose={onCloseModal}
 
             >
                 <Box
