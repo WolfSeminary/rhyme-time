@@ -26,7 +26,7 @@ const WordToRhyme = () => {
       <TextField id="outlined-basic" onChange={(e) => setWordToRhyme(e.target.value)} label="Type a Word" variant="outlined" />
       {rhymes && <RhymesList rhymes={rhymes.map(i => i.word
       )} />}
- 
+
     </Box>
   );
 }

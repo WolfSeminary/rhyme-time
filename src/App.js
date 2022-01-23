@@ -7,9 +7,7 @@ import HomepPage from './HomePage';
 function App() {
   return (
     <div className="App">
-      {/* <AppBarPage />
-      <MultilineTextFiel/> */}
-      <HomepPage/>
+      <HomepPage />
     </div>
   );
 }
