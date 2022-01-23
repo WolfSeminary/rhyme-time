@@ -3,7 +3,6 @@ import WriteSong from './WriteSong';
 import NumOfSyllables from './NumOfSyllables ';
 import FindRhyme from './FindRhyme';
 import PrintSong from './PrintSong';
-import FetchMoreRhymes from './FetchMoreRhymes';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -69,7 +68,7 @@ export default function ComplexGrid() {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <FetchMoreRhymes />
+                           
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
