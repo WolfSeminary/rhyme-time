@@ -30,7 +30,6 @@ export default function MultilineTextFields() {
             multiline
             fullWidth
             rows={4}
-            //defaultValue="Write the Song"
             onChange={onWriteSong}
           />
         </div>
