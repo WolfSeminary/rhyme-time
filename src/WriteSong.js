@@ -13,7 +13,7 @@ export default function MultilineTextFields() {
     console.log("the current song: "+song);
   };
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex" }} style={{}}>
       <Box
         component="form"
         sx={{
