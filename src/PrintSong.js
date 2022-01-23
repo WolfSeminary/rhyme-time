@@ -11,9 +11,8 @@ const PrintSong = () => {
      <Button variant="contained" disableElevation onClick={onPrintSongClick}>
       Print Designed Song
     </Button>
-   {shouldShowThankYouModal && <ThankYouModal/>}
+   {shouldShowThankYouModal && <ThankYouModal shouldShowThankYouModal={setShouldShowThankYouModal}/>}
     </>
-   
     );
 }
 export default PrintSong
