@@ -12,17 +12,17 @@ export default function RhymesList(props) {
   }
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value,index) => (
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index,value) => (
         <ListItem
           key={value}
           disableGutters
           secondaryAction={
-            <IconButton>
+            <IconButton onClick={()=>onCopyRhymeClick(props.rhymes[index])} >
               <ContentCopyIcon />
             </IconButton>
           }
         >
-          <ListItemText primary={`${value} ${props.rhymes[index]} `} onClick={onCopyRhymeClick(props.rhymes[index])}/>
+          <ListItemText primary={`${value} ${props.rhymes[index]} `} />
         </ListItem>
       ))}
     </List>
