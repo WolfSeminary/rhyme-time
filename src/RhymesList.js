@@ -5,6 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import CommentIcon from '@mui/icons-material/Comment';
 import IconButton from '@mui/material/IconButton';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import NumOfSyllables from './NumOfSyllables ';
 
 export default function RhymesList(props) {
   const onCopyRhymeClick=(currentRhyme)=>{
@@ -18,9 +19,9 @@ export default function RhymesList(props) {
           key={value}
           disableGutters
           secondaryAction={
-            <IconButton onClick={()=>onCopyRhymeClick(props.rhymes[index].word)} >
-              <ContentCopyIcon />
-            </IconButton>
+             <IconButton onClick={()=>onCopyRhymeClick(props.rhymes[index].word)} >
+               <ContentCopyIcon />
+             </IconButton>
           }
         >
           <ListItemText primary={`${value+1} ${props.rhymes[index].word} `} />

@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import RhymesList from './RhymesList'
 import Button from '@mui/material/Button';
+import FetchMoreRhymes from './FetchMoreRhymes';
 
 const WordToRhyme = () => {
   const [wordToRhyme, setWordToRhyme] = useState()
@@ -25,6 +26,8 @@ const WordToRhyme = () => {
       <Button variant="contained" onClick={fetchRhymes}>Find Rhymes</Button>
       <TextField id="outlined-basic" onChange={(e) => setWordToRhyme(e.target.value)} label="Type a Word" variant="outlined" />
       {rhymes && <RhymesList rhymes={rhymes.map(i => (i)
+      )} />}
+       {rhymes && <FetchMoreRhymes rhymes={rhymes.map(i => (i)
       )} />}
 
     </Box>
