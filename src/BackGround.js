@@ -6,6 +6,11 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 export default function RadioButtonsGroup() {
+  const [backgrounds,setBackgrounds]=React.useState([
+    {id:1,name:"backgrounda",url:"./backgrounds/picture1.jpg"},
+    {id:2,name:"backgroundb",url:"./backgrounds/picture2.jpg"},
+    {id:3,name:"backgroundc",url:"./backgrounds/picture3.jpg"},
+  ])
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">Choose a Background</FormLabel>
