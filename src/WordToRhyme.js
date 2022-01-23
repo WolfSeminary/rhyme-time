@@ -12,7 +12,7 @@ const WordToRhyme = () => {
     e.preventDefault();
     fetch(`https://rhymebrain.com/talk?function=getRhymes&word=${wordToRhyme}`)
       .then(response => response.json())
-      .then((data) => setrhymes(data)
+      .then((data) =>setrhymes(data)
       );
   }
   return (
@@ -24,7 +24,7 @@ const WordToRhyme = () => {
     >
       <Button variant="contained" onClick={fetchRhymes}>Find Rhymes</Button>
       <TextField id="outlined-basic" onChange={(e) => setWordToRhyme(e.target.value)} label="Type a Word" variant="outlined" />
-      {rhymes && <RhymesList rhymes={rhymes.map(i => i.word
+      {rhymes && <RhymesList rhymes={rhymes.map(i => (i)
       )} />}
 
     </Box>
