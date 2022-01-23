@@ -18,7 +18,7 @@ export default function RhymesList(props) {
           key={value}
           disableGutters
           secondaryAction={
-            <IconButton onClick={()=>onCopyRhymeClick(props.rhymes[index])} >
+            <IconButton onClick={()=>onCopyRhymeClick(props.rhymes[index].word)} >
               <ContentCopyIcon />
             </IconButton>
           }
