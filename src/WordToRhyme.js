@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import RhymesList from './RhymesList'
+import Button from '@mui/material/Button';
 
 const WordToRhyme = () => {
   const [wordToRhyme, setWordToRhyme] = useState()
@@ -21,10 +22,11 @@ const WordToRhyme = () => {
       noValidate
       autoComplete="off"
     >
+      <Button variant="contained" onClick={fetchRhymes}>Find Rhymes</Button>
       <TextField id="outlined-basic" onChange={(e) => setWordToRhyme(e.target.value)} label="Type a Word" variant="outlined" />
       {rhymes && <RhymesList rhymes={rhymes.map(i => i.word
       )} />}
-
+ 
     </Box>
   );
 }
