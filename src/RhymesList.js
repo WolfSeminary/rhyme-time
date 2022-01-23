@@ -11,6 +11,7 @@ export default function RhymesList(props) {
     navigator.clipboard.writeText(currentRhyme);
   }
   return (
+   
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index,value) => (
         <ListItem
@@ -22,7 +23,7 @@ export default function RhymesList(props) {
             </IconButton>
           }
         >
-          <ListItemText primary={`${value} ${props.rhymes[index]} `} />
+          <ListItemText primary={`${value+1} ${props.rhymes[index].word} `} />
         </ListItem>
       ))}
     </List>
