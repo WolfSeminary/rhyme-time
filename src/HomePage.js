@@ -3,7 +3,8 @@ import WriteSong from './WriteSong';
 import NumOfSyllables from './NumOfSyllables ';
 import FindRhyme from './FindRhyme';
 import PrintSong from './PrintSong';
-import React from 'react';
+import FetchMoreRhymes from './FetchMoreRhymes';
+import React,{useRef} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -13,6 +14,7 @@ import RhymesList from './RhymesList';
 import BackGround from './BackGround';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
+import ReactToPrint from 'react-to-print';
 import { useState  } from 'react';
 
 const useStyles = makeStyles((theme) => ({
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid() {
     const classes = useStyles();
+    const componentRef = useRef();
     const [image, setImage] = useState([]);
 
     return (
@@ -53,10 +56,19 @@ export default function ComplexGrid() {
                             />
                         </Grid>
                         <Grid item>
-                            <WriteSong image={image}/>
+                            <WriteSong image={image} ref={componentRef} />
                         </Grid>
                         <Grid item>
                             <BackGround setImage={setImage}/>
+                        </Grid>
+                        <Grid item >
+                            <ReactToPrint
+                                trigger={() =>
+                                    <button variant="contained" disableElevation >
+                                    Print Designed Song</button>
+                                }
+                                content={() => componentRef.current}
+                            />
                         </Grid>
                     </Grid>
                     <Grid item xs container direction="column" spacing={2}>
@@ -72,9 +84,7 @@ export default function ComplexGrid() {
                            
                         </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <PrintSong />
-                    </Grid>
+
                 </Grid>
             </Paper>
         </div>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useThemeProps } from '@mui/material';
 
-export default function MultilineTextFields(props) {
+const MultilineTextFields = React.forwardRef((props, ref) => {
   const [song, setSong] = React.useState("");
   const [value, setValue] = React.useState('Controlled');
   const handleChange = (event) => {
@@ -11,10 +11,10 @@ export default function MultilineTextFields(props) {
   };
   const onWriteSong = (event) => {
     setSong(event.target.value);
-    console.log("the current song: "+song);
+    console.log("the current song: " + song);
   };
   return (
-    <div style={{ display: "flex" }} style={{}}>
+    <div  style={{ display: "flex" }}>
       <Box
         component="form"
         sx={{
@@ -35,8 +35,11 @@ export default function MultilineTextFields(props) {
             onChange={onWriteSong}
           />
         </div>
-      </Box></div>
+        <div ref = {ref}  style = {{backgroundImage:`url(${props.image})`,height:'100%',backgroundSize:'100%',fontSize:'100px'}} className="divToPrint">
+          {song}
+        </div>
+      </Box>
+    </div>
   );
-
-}
-
+})
+export default MultilineTextFields
