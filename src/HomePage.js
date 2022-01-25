@@ -4,7 +4,7 @@ import NumOfSyllables from './NumOfSyllables ';
 import FindRhyme from './FindRhyme';
 import PrintSong from './PrintSong';
 import FetchMoreRhymes from './FetchMoreRhymes';
-import React from 'react';
+import React,{useRef} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -14,6 +14,7 @@ import RhymesList from './RhymesList';
 import BackGround from './BackGround';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
+import ReactToPrint from 'react-to-print';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid() {
     const classes = useStyles();
+    const componentRef = useRef();
 
     return (
         <div className={classes.root}>
@@ -52,15 +54,21 @@ export default function ComplexGrid() {
                             <ClearSong
                             />
                         </Grid>
-                        {/* <Grid item>
-                            <WriteSong />
-                        </Grid> */}
-                         <Grid item xs={12}>
-                        <PrintSong />
-                    </Grid>
-                        {/* <Grid item>
+                        <Grid item>
+                            <WriteSong ref={componentRef} />
+                        </Grid>
+                        <Grid item>
                             <BackGround />
-                        </Grid> */}
+                        </Grid>
+                        <Grid item >
+                            <ReactToPrint
+                                trigger={() =>
+                                    <button variant="contained" disableElevation >
+                                    Print Designed Song</button>
+                                }
+                                content={() => componentRef.current}
+                            />
+                        </Grid>
                     </Grid>
                     <Grid item xs container direction="column" spacing={2}>
                         <Grid item xs={12} sm container spacing={10}>
@@ -75,7 +83,7 @@ export default function ComplexGrid() {
                             <FetchMoreRhymes />
                         </Grid>
                     </Grid>
-                   
+
                 </Grid>
             </Paper>
         </div>
