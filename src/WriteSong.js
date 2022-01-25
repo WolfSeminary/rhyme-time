@@ -6,12 +6,13 @@ import { useThemeProps } from '@mui/material';
 export default function MultilineTextFields(props) {
   const [song, setSong] = React.useState("");
   const [value, setValue] = React.useState('Controlled');
+
   const handleChange = (event) => {
-    setValue(song);
+    setValue(props.song);
   };
   const onWriteSong = (event) => {
-    setSong(event.target.value);
-    console.log("the current song: "+song);
+     props.setSong(event.target.value)
+    console.log("the current song: " + song);
   };
   return (
     <div style={{ display: "flex" }} style={{}}>
@@ -25,8 +26,9 @@ export default function MultilineTextFields(props) {
         fullWidth
       >
         <div >
-          <TextField 
-          style = {{backgroundImage:`url(${props.image})`,backgroundSize :"150px 200px"}}
+          <TextField
+            value={props.song}
+            style={{ backgroundImage: `url(${props.image})`, backgroundSize: "150px 200px" }}
             id="outlined-multiline-static"
             label="Write Song"
             multiline

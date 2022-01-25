@@ -4,16 +4,18 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import ClearIcon from '@mui/icons-material/Clear';
 
-export default function IconButtons() {
-  let [song, setSong] = useState("")
+export default function IconButtons(props) {
+  // let [song, setSong] = useState("")
   const onClearSongClick = () => {
-    setSong("");
+    props.setSong("");
+    console.log("ggg")
   }
   return (
     <Stack direction="row" spacing={1}>
-      <IconButton aria-label="Clear" onClick={onClearSongClick}>
+      <IconButton aria-label="Clear" onClick={()=>onClearSongClick()}>
         <ClearIcon />
       </IconButton>
     </Stack>
   );
 }
+

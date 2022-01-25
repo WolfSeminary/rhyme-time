@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ComplexGrid() {
     const classes = useStyles();
     const [image, setImage] = useState([]);
+    const [song, setSong] = useState("");
 
     return (
         <div className={classes.root}>
@@ -49,11 +50,11 @@ export default function ComplexGrid() {
                     </Grid>
                     <Grid item xs container direction="column" spacing={2}>
                         <Grid item>
-                            <ClearSong
+                            <ClearSong setSong={setSong}
                             />
                         </Grid>
                         <Grid item>
-                            <WriteSong image={image}/>
+                            <WriteSong image={image} song={song} setSong={setSong}/>
                         </Grid>
                         <Grid item>
                             <BackGround setImage={setImage}/>
