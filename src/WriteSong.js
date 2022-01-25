@@ -1,6 +1,7 @@
 import React, { forwardRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { useThemeProps } from '@mui/material';
 
 const MultilineTextFields = React.forwardRef((props, ref) => {
   const [song, setSong] = React.useState("");
@@ -23,9 +24,9 @@ const MultilineTextFields = React.forwardRef((props, ref) => {
         autoComplete="off"
         fullWidth
       >
-        <div>
-          <TextField
-        
+        <div >
+          <TextField 
+          style = {{backgroundImage:`url(${props.image})`,backgroundSize :"150px 200px"}}
             id="outlined-multiline-static"
             label="Write Song"
             multiline
@@ -34,7 +35,7 @@ const MultilineTextFields = React.forwardRef((props, ref) => {
             onChange={onWriteSong}
           />
         </div>
-        <div ref = {ref}  style = {{backgroundColor:'red'}} className="divToPrint">
+        <div ref = {ref}  style = {{backgroundImage:`url(${props.image})`,height:'100%',backgroundSize:'100%',fontSize:'100px'}} className="divToPrint">
           {song}
         </div>
       </Box>

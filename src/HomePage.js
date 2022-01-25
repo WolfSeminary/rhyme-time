@@ -15,11 +15,11 @@ import BackGround from './BackGround';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
 import ReactToPrint from 'react-to-print';
+import { useState  } from 'react';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        // width:'50vw',
     },
     paper: {
         padding: theme.spacing(2),
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ComplexGrid() {
     const classes = useStyles();
     const componentRef = useRef();
+    const [image, setImage] = useState([]);
 
     return (
         <div className={classes.root}>
@@ -55,10 +56,10 @@ export default function ComplexGrid() {
                             />
                         </Grid>
                         <Grid item>
-                            <WriteSong ref={componentRef} />
+                            <WriteSong image={image} ref={componentRef} />
                         </Grid>
                         <Grid item>
-                            <BackGround />
+                            <BackGround setImage={setImage}/>
                         </Grid>
                         <Grid item >
                             <ReactToPrint
@@ -80,7 +81,7 @@ export default function ComplexGrid() {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <FetchMoreRhymes />
+                           
                         </Grid>
                     </Grid>
 
