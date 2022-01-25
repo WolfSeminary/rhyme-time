@@ -14,10 +14,10 @@ import BackGround from './BackGround';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
 import { useState  } from 'react';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        // width:'50vw',
     },
     paper: {
         padding: theme.spacing(2),

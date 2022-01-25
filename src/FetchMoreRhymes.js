@@ -7,7 +7,6 @@ export default function FetchMoreRhymes(props) {
     useEffect(() => {
         setcurrentRhymesRange(props.rhymes.length > 10 ? 10 : props.rhymes.length-1)
     }, [props.rhymes.length]);
-  //  const fetchRhymes = () => { setcurrentRhymesRange(currentRhymesRange + 10) }
     return (
         <Button variant="contained">Fetch more Rhymes ({currentRhymesRange}/{props.rhymes.length-1})</Button>
     );

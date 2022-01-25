@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import FetchMoreRhymes from './FetchMoreRhymes';
 import NumOfSyllables from './NumOfSyllables '
 import { RhymeContext } from './App';
+
 const WordToRhyme = () => {
   const [wordToRhyme, setWordToRhyme] = useState()
   const [rhymes, setrhymes] = useState()
