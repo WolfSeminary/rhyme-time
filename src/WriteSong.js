@@ -7,12 +7,9 @@ const MultilineTextFields = React.forwardRef((props, ref) => {
   const [song, setSong] = React.useState("");
   const [value, setValue] = React.useState('Controlled');
   const handleChange = (event) => {
-   // setValue(song);
     setValue(props.song);
   };
   const onWriteSong = (event) => {
-    // setSong(event.target.value);
-    // console.log("the current song: " + song);
     props.setSong(event.target.value)
     console.log("the current song: " + song);
   };
@@ -40,7 +37,7 @@ const MultilineTextFields = React.forwardRef((props, ref) => {
           />
         </div>
         <div ref = {ref}  style = {{backgroundImage:`url(${props.image})`,height:'100%',backgroundSize:'100%',fontSize:'100px'}} className="divToPrint">
-          {song}
+          {props.song}
         </div>
       </Box>
     </div>
