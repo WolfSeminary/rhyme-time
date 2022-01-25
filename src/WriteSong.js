@@ -7,10 +7,13 @@ const MultilineTextFields = React.forwardRef((props, ref) => {
   const [song, setSong] = React.useState("");
   const [value, setValue] = React.useState('Controlled');
   const handleChange = (event) => {
-    setValue(song);
+   // setValue(song);
+    setValue(props.song);
   };
   const onWriteSong = (event) => {
-    setSong(event.target.value);
+    // setSong(event.target.value);
+    // console.log("the current song: " + song);
+    props.setSong(event.target.value)
     console.log("the current song: " + song);
   };
   return (
@@ -26,6 +29,7 @@ const MultilineTextFields = React.forwardRef((props, ref) => {
       >
         <div >
           <TextField 
+            value={props.song}
           style = {{backgroundImage:`url(${props.image})`,backgroundSize :"150px 200px"}}
             id="outlined-multiline-static"
             label="Write Song"

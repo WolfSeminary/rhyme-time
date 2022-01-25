@@ -42,7 +42,7 @@ export default function ComplexGrid() {
     const classes = useStyles();
     const componentRef = useRef();
     const [image, setImage] = useState([]);
-
+    const [song, setSong] = useState("");
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
@@ -52,11 +52,11 @@ export default function ComplexGrid() {
                     </Grid>
                     <Grid item xs container direction="column" spacing={2}>
                         <Grid item>
-                            <ClearSong
+                        <ClearSong setSong={setSong}
                             />
                         </Grid>
                         <Grid item>
-                            <WriteSong image={image} ref={componentRef} />
+                            <WriteSong image={image} ref={componentRef} song={song} setSong={setSong} />
                         </Grid>
                         <Grid item>
                             <BackGround setImage={setImage}/>
