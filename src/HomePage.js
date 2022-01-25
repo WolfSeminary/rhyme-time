@@ -13,7 +13,7 @@ import RhymesList from './RhymesList';
 import BackGround from './BackGround';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
-
+import { useState  } from 'react';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid() {
     const classes = useStyles();
+    const [image, setImage] = useState([]);
 
     return (
         <div className={classes.root}>
@@ -52,10 +53,10 @@ export default function ComplexGrid() {
                             />
                         </Grid>
                         <Grid item>
-                            <WriteSong />
+                            <WriteSong image={image}/>
                         </Grid>
                         <Grid item>
-                            <BackGround />
+                            <BackGround setImage={setImage}/>
                         </Grid>
                     </Grid>
                     <Grid item xs container direction="column" spacing={2}>

@@ -18,13 +18,14 @@ export default function RhymesList(props) {
         <ListItem
           key={value}
           disableGutters
-          secondaryAction={
+          secondaryAction={index < props.rhymes.length &&
              <IconButton onClick={()=>onCopyRhymeClick(props.rhymes[index].word)} >
                <ContentCopyIcon />
              </IconButton>
           }
         >
-          <ListItemText primary={`${value+1} ${props.rhymes[index].word} `} />
+          
+          {index < props.rhymes.length && <ListItemText primary={`${value+1} ${props.rhymes[index].word} `} />}
         </ListItem>
       ))}
     </List>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { useThemeProps } from '@mui/material';
 
-export default function MultilineTextFields() {
+export default function MultilineTextFields(props) {
   const [song, setSong] = React.useState("");
   const [value, setValue] = React.useState('Controlled');
   const handleChange = (event) => {
@@ -23,8 +24,9 @@ export default function MultilineTextFields() {
         autoComplete="off"
         fullWidth
       >
-        <div>
-          <TextField
+        <div >
+          <TextField 
+          style = {{backgroundImage:`url(${props.image})`,backgroundSize :"150px 200px"}}
             id="outlined-multiline-static"
             label="Write Song"
             multiline
