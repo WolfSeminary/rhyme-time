@@ -9,23 +9,24 @@ import ThankYouModal from './ThankYouModal';
 import { create } from '@mui/material/styles/createTransitions';
 import { useState } from 'react';
 
- const RhymeContext = createContext({rhymeListFilter:[],setRhymeListFilter:() => {}});
+//  const RhymeContext = createContext({rhymeListFilter:[],setRhymeListFilter:() => {}});
  
 function App() {
-  const [rhymes, setrhymes] = useState([]);
+  // const [rhymes, setrhymes] = useState([]);
   
-  const login = (value) => {
-    setrhymes(value);
-  };
+  // const login = (value) => {
+  //   setrhymes(value);
+  // };
   return (
     <div className="App">
-      <RhymeContext.Provider value={{rhymeListFilter:rhymes,setRhymeListFilter:login}}>
-      <HomepPage />
-      </RhymeContext.Provider>
+     {/* <RhymeContext.Provider value={{rhymeListFilter:rhymes,setRhymeListFilter:login}}>
+  */}
+   <HomepPage />
+     {/* </RhymeContext.Provider>*/}
     </div>
   );
 }
 
 export default App;
-export {RhymeContext};
+// export {RhymeContext};
 

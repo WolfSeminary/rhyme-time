@@ -1,16 +1,17 @@
-import * as React from 'react';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel
+} from "@mui/material";
 import { useState } from 'react';
 
-export default function RadioButtonsGroup(props) {
-  const [backgrounds,setBackgrounds]=React.useState([
-    {id:1,name:"backgrounda",url:"./backgrounds/picture1.jpg"},
-    {id:2,name:"backgroundb",url:"./backgrounds/picture2.jpg"},
-    {id:3,name:"backgroundc",url:"./backgrounds/picture3.jpg"},
+export default function Background({ onChange }) {
+  const [backgrounds, setBackgrounds] = useState([
+    { id: 1, name: "Background A", url: "./backgrounds/picture1.jpg" },
+    { id: 2, name: "Background B", url: "./backgrounds/picture2.jpg" },
+    { id: 3, name: "Background C", url: "./backgrounds/picture3.jpg" },
   ])
 
   return (
@@ -21,11 +22,10 @@ export default function RadioButtonsGroup(props) {
         defaultValue="female"
         name="radio-buttons-group"
       >
-        <FormControlLabel value="backgrounda" control={<Radio />} label="background a" onChange={()=>(props.setImage(backgrounds[0].url))}/>
-        <FormControlLabel value="backgroundb" control={<Radio />} label="background b" onChange={()=>(props.setImage(backgrounds[1].url))}/>
-        <FormControlLabel value="backgroundc" control={<Radio />} label="background c" onChange={()=>(props.setImage(backgrounds[2].url))}/>
+        {backgrounds.map(item => <FormControlLabel key={item.id} value={item.name} control={<Radio />} label={item.name} onChange={() => { onChange(item) }} />)}
+
       </RadioGroup>
-    </FormControl >
+    </FormControl>
   );
 }
 

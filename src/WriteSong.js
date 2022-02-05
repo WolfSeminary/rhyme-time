@@ -1,20 +1,10 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { useThemeProps } from '@mui/material';
 
-const MultilineTextFields = React.forwardRef((props, ref) => {
-  const [song, setSong] = React.useState("");
-  const [value, setValue] = React.useState('Controlled');
-  const handleChange = (event) => {
-    setValue(props.song);
-  };
-  const onWriteSong = (event) => {
-    props.setSong(event.target.value)
-    console.log("the current song: " + song);
-  };
+const WriteSong = forwardRef(({ onChange,background ,song}, ref) => {
   return (
-    <div  style={{ display: "flex" }}>
+    <div style={{ display: "flex" }}>
       <Box
         component="form"
         sx={{
@@ -25,22 +15,22 @@ const MultilineTextFields = React.forwardRef((props, ref) => {
         fullWidth
       >
         <div >
-          <TextField 
-            value={props.song}
-          style = {{backgroundImage:`url(${props.image})`,backgroundSize :"150px 200px"}}
+          <TextField
+            value={song}
+            style={{ backgroundImage: `url(${background})`, backgroundSize: "150px 200px" }}
             id="outlined-multiline-static"
             label="Write Song"
             multiline
             fullWidth
             rows={4}
-            onChange={onWriteSong}
+            onChange={onChange}
           />
         </div>
-        <div ref = {ref}  style = {{backgroundImage:`url(${props.image})`,height:'100%',backgroundSize:'100%',fontSize:'100px'}} className="divToPrint">
-          {props.song}
+        <div ref={ref} style={{ backgroundImage: `url(${background})`, height: '100%', backgroundSize: '100%', fontSize: '100px' }} className="divToPrint">
+          {song}
         </div>
       </Box>
     </div>
   );
 })
-export default MultilineTextFields
+export default WriteSong;

@@ -2,32 +2,29 @@ import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import CommentIcon from '@mui/icons-material/Comment';
 import IconButton from '@mui/material/IconButton';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import NumOfSyllables from './NumOfSyllables ';
 
-export default function RhymesList(props) {
-  const onCopyRhymeClick=(currentRhyme)=>{
+export default function RhymesList({ rhymes, currentRange }) {
+  const onCopyRhymeClick = (currentRhyme) => {
     navigator.clipboard.writeText(currentRhyme);
   }
+
   return (
-   
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index,value) => (
+      {rhymes.slice(currentRange - 10, currentRange).map((item, index) => (
         <ListItem
-          key={value}
+          key={index}
           disableGutters
-          secondaryAction={index < props.rhymes.length &&
-             <IconButton onClick={()=>onCopyRhymeClick(props.rhymes[index].word)} >
-               <ContentCopyIcon />
-             </IconButton>
-          }
-        >
-          
-          {index < props.rhymes.length && <ListItemText primary={`${value+1} ${props.rhymes[index].word} `} />}
+          secondaryAction={
+            <IconButton onClick={() => onCopyRhymeClick(item.word)} >
+              <ContentCopyIcon />
+            </IconButton>
+          }>
+          <ListItemText primary={`${index + 1} ${item.word} `} />
         </ListItem>
-      ))}
+      ))
+      }
     </List>
   );
 }
