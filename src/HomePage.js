@@ -6,19 +6,18 @@ import RhymesList from "./RhymesList";
 import ThankYouModal from "./ThankYouModal";
 import PrintSong from './PrintSong';
 import FetchMoreRhymes from './FetchMoreRhymes';
-import React, { useRef } from 'react';
-import { Grid, Paper, makeStyles } from "@mui/material"
-import BackGround from './Background';
+import Background from './Background';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
-import { useState, useEffect } from 'react';
+import {useRef, useState, useEffect } from 'react';
+import { Grid, Paper } from "@mui/material"
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(2),
         margin: 'auto',
         maxWidth: '100vw',
     },
@@ -58,6 +57,7 @@ export default function HomePage() {
     const fetchRhymes = (e) => {
         if (!wordToRhyme || !wordToRhyme.trim())
             e.preventDefault();
+        setNumOfSyllables(0);
         fetch(`https://rhymebrain.com/talk?function=getRhymes&word=${wordToRhyme}`)
             .then(response => response.json())
             .then(data => {
@@ -70,6 +70,8 @@ export default function HomePage() {
 
     const onWordToRhymeChange = (value) => {
         setWordToRhyme(value);
+        setNumOfSyllables(0);
+
     }
     const onWriteSong = (e) => {
         setSong(e.target.value)
@@ -103,9 +105,7 @@ export default function HomePage() {
                             <WriteSong onChange={onWriteSong} song={song} background={selectedBackground ? selectedBackground.url : null} ref={componentRef} song={song} setSong={setSong} />
                         </Grid>
                         <Grid item>
-                            {/*
-                          <BackGround setImage={setImage} />  */}
-                            <BackGround onChange={onBackgroundChange} />
+                            <Background onChange={onBackgroundChange} />
                         </Grid>
 
                     </Grid>
@@ -136,9 +136,7 @@ export default function HomePage() {
 
                 </Grid>
                 {shouldShowThankYouModal && <ThankYouModal onClose={onCloseModal} />}
-
             </Paper>
-
         </div>
 
     );

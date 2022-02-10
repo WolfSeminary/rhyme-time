@@ -1,16 +1,6 @@
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-// import { useState,useContext } from 'react';
-// import RhymesList from './RhymesList'
-// import Button from '@mui/material/Button';
-// import FetchMoreRhymes from './FetchMoreRhymes';
-// import NumOfSyllables from './NumOfSyllables '
-// import { RhymeContext } from './App';
+import { Box, TextField } from '@mui/material';
 
-export default function WordToRhyme({ onChange}) {
-
-  // const { rhymeListFilter, setRhymeListFilter } = useContext(RhymeContext);
-
+export default function WordToRhyme({ onChange }) {
   return (
     <Box
       component="form"
@@ -18,10 +8,7 @@ export default function WordToRhyme({ onChange}) {
       noValidate
       autoComplete="off"
     >
-     {/* <Button variant="contained" onClick={fetchRhymes}>Find Rhymes</Button>*/}
       <TextField id="outlined-basic" onChange={(e) => onChange(e.target.value)} label="Type a Word" variant="outlined" />
-
-
     </Box>
   );
 }

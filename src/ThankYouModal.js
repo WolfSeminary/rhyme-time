@@ -1,13 +1,7 @@
 import * as React from 'react';
-import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Box, Modal, Typography } from '@mui/material';
 
-const ThankYouModal = ({onCloseModal}) => {
-
-    // const onCloseModal = () => {
-    //     props.shouldShowThankYouModal = false;
-    // }
+const ThankYouModal = ({ onCloseModal }) => {
 
     return (
         <Box

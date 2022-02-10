@@ -1,5 +1,5 @@
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { Box, TextField } from '@mui/material';
+
 
 export default function NumOfSyllables({onChange,numOfSyllables}) {
 
