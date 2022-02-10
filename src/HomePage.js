@@ -9,15 +9,17 @@ import FetchMoreRhymes from './FetchMoreRhymes';
 import Background from './Background';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
-import {useRef, useState, useEffect } from 'react';
-import { Grid, Paper } from "@mui/material"
+import { useRef, useState, useEffect } from 'react';
+import { Grid, Paper, createTheme } from "@mui/material"
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles((theme) => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
     },
     paper: {
+        padding: theme.spacing(2),
         margin: 'auto',
         maxWidth: '100vw',
     },
