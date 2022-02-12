@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Modal, Typography, Box } from '@mui/material';
 
 export default function ThankYouModal({ onCloseModal, open }) {

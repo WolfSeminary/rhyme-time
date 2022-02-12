@@ -1,6 +1,5 @@
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import ClearIcon from '@mui/icons-material/Clear';
+import { IconButton, Stack } from '@mui/material';
 
 export default function ClearSong({ onClick }) {
   return (

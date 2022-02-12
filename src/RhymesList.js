@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { List, ListItem, ListItemText, IconButton } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 

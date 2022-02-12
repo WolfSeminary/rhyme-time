@@ -131,7 +131,7 @@ export default function HomePage() {
 
                             <RhymesList currentRange={currentRhymesRange} rhymes={rhymeListFilter} />
 
-                            <FetchMoreRhymes setCurrentRhymesRange={setCurrentRhymesRange} currentRhymesRange={currentRhymesRange} rhymesLength={rhymes.length} />
+                            <FetchMoreRhymes currentRhymesRange={currentRhymesRange} rhymesLength={rhymes.length} />
                         </Grid>
                     </Grid>
                 </Grid>
