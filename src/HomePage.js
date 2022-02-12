@@ -14,7 +14,7 @@ import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
 import { useState, useEffect } from 'react';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
     },
@@ -56,11 +56,8 @@ export default function HomePage() {
         }
     }, [numOfSyllables]);
     const fetchRhymes = (e) => {
-        if (!wordToRhyme || !wordToRhyme.trim())
-            return;
+                e.preventDefault();
         setNumOfSyllables(0);
-
-        e.preventDefault();
         fetch(`https://rhymebrain.com/talk?function=getRhymes&word=${wordToRhyme}`)
             .then(response => response.json())
             .then(data => {
