@@ -1,32 +1,15 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import './App.css';
-import AppBarPage from './AppBar';
-import MultilineTextFields from './WriteSong';
 import HomepPage from './HomePage';
-import Example from './try';
-import ThankYouModal from './ThankYouModal';
 
-import { create } from '@mui/material/styles/createTransitions';
-import { useState } from 'react';
-
-//  const RhymeContext = createContext({rhymeListFilter:[],setRhymeListFilter:() => {}});
- 
-function App() {
-  // const [rhymes, setrhymes] = useState([]);
-  
-  // const login = (value) => {
-  //   setrhymes(value);
-  // };
+export default function App() {
   return (
     <div className="App">
-     {/* <RhymeContext.Provider value={{rhymeListFilter:rhymes,setRhymeListFilter:login}}>
-  */}
-   <HomepPage />
-     {/* </RhymeContext.Provider>*/}
+      <HomepPage />
     </div>
   );
 }
 
-export default App;
-// export {RhymeContext};
+
+
 

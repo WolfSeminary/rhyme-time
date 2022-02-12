@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { TextField, Box } from '@mui/material';
 
-const WriteSong = forwardRef(({ onChange,background ,song}, ref) => {
+const WriteSong = forwardRef(({ onChange, background, song }, ref) => {
   return (
     <div style={{ display: "flex" }}>
       <Box

@@ -1,6 +1,4 @@
-import React, { useRef, useState } from 'react';
 import Button from '@mui/material/Button';
-
 import ReactToPrint from 'react-to-print';
 
 export default function PrintSong({ onClick, content }) {

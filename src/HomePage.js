@@ -7,7 +7,8 @@ import ThankYouModal from "./ThankYouModal";
 import PrintSong from './PrintSong';
 import FetchMoreRhymes from './FetchMoreRhymes';
 import React, { useRef } from 'react';
-import { Grid, Paper, makeStyles } from "@mui/material"
+import { Grid, Paper } from "@mui/material"
+import { makeStyles } from "@mui/styles"
 import BackGround from './Background';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
@@ -18,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(2),
         margin: 'auto',
         maxWidth: '100vw',
     },
@@ -57,7 +57,10 @@ export default function HomePage() {
     }, [numOfSyllables]);
     const fetchRhymes = (e) => {
         if (!wordToRhyme || !wordToRhyme.trim())
-            e.preventDefault();
+            return;
+        setNumOfSyllables(0);
+
+        e.preventDefault();
         fetch(`https://rhymebrain.com/talk?function=getRhymes&word=${wordToRhyme}`)
             .then(response => response.json())
             .then(data => {
@@ -100,11 +103,9 @@ export default function HomePage() {
                             <ClearSong onClick={onClearSongClick} />
                         </Grid>
                         <Grid item>
-                            <WriteSong onChange={onWriteSong} song={song} background={selectedBackground ? selectedBackground.url : null} ref={componentRef} song={song} setSong={setSong} />
+                            <WriteSong onChange={onWriteSong} song={song} background={selectedBackground ? selectedBackground.url : null} ref={componentRef} setSong={setSong} />
                         </Grid>
                         <Grid item>
-                            {/*
-                          <BackGround setImage={setImage} />  */}
                             <BackGround onChange={onBackgroundChange} />
                         </Grid>
 
@@ -133,9 +134,8 @@ export default function HomePage() {
                             <FetchMoreRhymes setCurrentRhymesRange={setCurrentRhymesRange} currentRhymesRange={currentRhymesRange} rhymesLength={rhymes.length} />
                         </Grid>
                     </Grid>
-
                 </Grid>
-                {shouldShowThankYouModal && <ThankYouModal onClose={onCloseModal} />}
+                <ThankYouModal onClose={onCloseModal} open={shouldShowThankYouModal} />
 
             </Paper>
 
