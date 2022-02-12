@@ -1,5 +1,4 @@
-import { AppBar, Toolbar, Typography } from "@mui/material"
-
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
 export default function AppBarPage() {
   return (

@@ -1,7 +1,6 @@
 import { Box, TextField } from '@mui/material';
 
-
-export default function NumOfSyllables({onChange,numOfSyllables}) {
+export default function NumOfSyllables({ onChange, numOfSyllables }) {
 
   return (
     <Box

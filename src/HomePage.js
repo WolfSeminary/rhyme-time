@@ -6,20 +6,19 @@ import RhymesList from "./RhymesList";
 import ThankYouModal from "./ThankYouModal";
 import PrintSong from './PrintSong';
 import FetchMoreRhymes from './FetchMoreRhymes';
-import Background from './Background';
+import React, { useRef } from 'react';
+import { Grid, Paper } from "@mui/material"
+import { makeStyles } from "@mui/styles"
+import BackGround from './Background';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
-import { useRef, useState, useEffect } from 'react';
-import { Grid, Paper, createTheme } from "@mui/material"
-import { makeStyles } from "@mui/styles";
+import { useState, useEffect } from 'react';
 
-const theme = createTheme();
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(2),
         margin: 'auto',
         maxWidth: '100vw',
     },
@@ -57,8 +56,7 @@ export default function HomePage() {
         }
     }, [numOfSyllables]);
     const fetchRhymes = (e) => {
-        if (!wordToRhyme || !wordToRhyme.trim())
-            e.preventDefault();
+                e.preventDefault();
         setNumOfSyllables(0);
         fetch(`https://rhymebrain.com/talk?function=getRhymes&word=${wordToRhyme}`)
             .then(response => response.json())
@@ -72,8 +70,6 @@ export default function HomePage() {
 
     const onWordToRhymeChange = (value) => {
         setWordToRhyme(value);
-        setNumOfSyllables(0);
-
     }
     const onWriteSong = (e) => {
         setSong(e.target.value)
@@ -104,10 +100,10 @@ export default function HomePage() {
                             <ClearSong onClick={onClearSongClick} />
                         </Grid>
                         <Grid item>
-                            <WriteSong onChange={onWriteSong} song={song} background={selectedBackground ? selectedBackground.url : null} ref={componentRef} song={song} setSong={setSong} />
+                            <WriteSong onChange={onWriteSong} song={song} background={selectedBackground ? selectedBackground.url : null} ref={componentRef} setSong={setSong} />
                         </Grid>
                         <Grid item>
-                            <Background onChange={onBackgroundChange} />
+                            <BackGround onChange={onBackgroundChange} />
                         </Grid>
 
                     </Grid>
@@ -132,13 +128,14 @@ export default function HomePage() {
 
                             <RhymesList currentRange={currentRhymesRange} rhymes={rhymeListFilter} />
 
-                            <FetchMoreRhymes setCurrentRhymesRange={setCurrentRhymesRange} currentRhymesRange={currentRhymesRange} rhymesLength={rhymes.length} />
+                            <FetchMoreRhymes currentRhymesRange={currentRhymesRange} rhymesLength={rhymes.length} />
                         </Grid>
                     </Grid>
-
                 </Grid>
-                {shouldShowThankYouModal && <ThankYouModal onClose={onCloseModal} />}
+                <ThankYouModal onClose={onCloseModal} open={shouldShowThankYouModal} />
+
             </Paper>
+
         </div>
 
     );

@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { ListItem, ListItemText, IconButton, List } from '@mui/material';
+import { List, ListItem, ListItemText, IconButton } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 export default function RhymesList({ rhymes, currentRange }) {

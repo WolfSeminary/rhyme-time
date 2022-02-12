@@ -1,8 +1,6 @@
-import * as React from 'react';
-import { Box, Modal, Typography } from '@mui/material';
+import { Modal, Typography, Box } from '@mui/material';
 
-const ThankYouModal = ({ onCloseModal }) => {
-
+export default function ThankYouModal({ onCloseModal, open }) {
     return (
         <Box
             sx={{
@@ -21,7 +19,7 @@ const ThankYouModal = ({ onCloseModal }) => {
                 disablePortal
                 disableEnforceFocus
                 disableAutoFocus
-                open
+                open={open}
                 aria-labelledby="server-modal-title"
                 aria-describedby="server-modal-description"
                 sx={{
@@ -29,7 +27,6 @@ const ThankYouModal = ({ onCloseModal }) => {
                     p: 1,
                     alignItems: 'center',
                     justifyContent: 'center',
-
                 }}
                 onClose={onCloseModal}
 
@@ -56,4 +53,3 @@ const ThankYouModal = ({ onCloseModal }) => {
         </Box>
     )
 }
-export default ThankYouModal
