@@ -9,9 +9,9 @@ import FetchMoreRhymes from './FetchMoreRhymes';
 import React, { useRef } from 'react';
 import { Grid, Paper } from "@mui/material"
 import { makeStyles } from "@mui/styles"
-import BackGround from './Background';
 import WordToRhyme from './WordToRhyme';
 import ClearSong from './ClearSong';
+import Background from "./BackGround"
 import { useState, useEffect } from 'react';
 
 const useStyles = makeStyles(() => ({
@@ -88,6 +88,15 @@ export default function HomePage() {
     const onPrintSongClick = () => {
         setShouldShowThankYouModal(true)
     }
+
+    const onFetchMoreRhymesClick =()=>{
+        const numOfRhymes = rhymes.length-currentRhymesRange;
+        if(numOfRhymes>0)
+       { setCurrentRhymesRange(currentRhymesRange+10);}
+        else 
+        {setCurrentRhymesRange(10);}
+    }
+
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
@@ -103,7 +112,7 @@ export default function HomePage() {
                             <WriteSong onChange={onWriteSong} song={song} background={selectedBackground ? selectedBackground.url : null} ref={componentRef} setSong={setSong} />
                         </Grid>
                         <Grid item>
-                            <BackGround onChange={onBackgroundChange} />
+                            <Background onChange={onBackgroundChange} />
                         </Grid>
 
                     </Grid>
@@ -128,7 +137,7 @@ export default function HomePage() {
 
                             <RhymesList currentRange={currentRhymesRange} rhymes={rhymeListFilter} />
 
-                            <FetchMoreRhymes currentRhymesRange={currentRhymesRange} rhymesLength={rhymes.length} />
+                            <FetchMoreRhymes currentRhymesRange={currentRhymesRange} onFetchMoreRhymesClick={onFetchMoreRhymesClick} rhymesLength={rhymes.length} />
                         </Grid>
                     </Grid>
                 </Grid>
