@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { useState } from 'react';
 
-export default function Background({ onChange }) {
+function Background({ onChange }) {
   const [backgrounds, setBackgrounds] = useState([
     { id: 1, name: "Background A", url: "./backgrounds/picture1.jpg" },
     { id: 2, name: "Background B", url: "./backgrounds/picture2.jpg" },
@@ -29,3 +29,4 @@ export default function Background({ onChange }) {
   );
 }
 
+export default Background;
